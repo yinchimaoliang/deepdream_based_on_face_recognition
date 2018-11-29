@@ -3,10 +3,17 @@ import cv2
 sys.path.append("my_face_recognition")
 import my_face_recognition
 import my_deepdream
+import get_camera_image
+
+#相机捕捉
+# camera = get_camera_image.getCamera()
+# camera.getImage()
 face = my_face_recognition.my_face_recognition()
 face.getImage("img8.jpg")
-img = face.getFace();
+face.getFace();
+# img = face.getFace();
 
+img = cv2.imread("camera_image.jpg")
 deepdream = my_deepdream.my_deep_dream()
 deepdream.get_image("face_output.jpg")
 deepdream.deep_dream()

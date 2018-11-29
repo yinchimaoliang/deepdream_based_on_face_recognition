@@ -8,7 +8,7 @@ import cv2
 # parameter
 model_name = "tensorflow_inception_graph.pb"
 imagenet_mean = 17.0
-layer = 'mixed5a'
+layer = 'mixed5b_pool_reduce'
 iter_num = 50
 octave_num = 4
 octave_scale = 1.4
@@ -24,7 +24,7 @@ class my_deep_dream():
         """define args"""
         parser = argparse.ArgumentParser(description="deep_dream")
         parser.add_argument("-i", "--input", help="input path", default="none")
-        parser.add_argument("-o", "--output", help="output path", default="output/output.jpg")
+        parser.add_argument("-o", "--output", help="output path", default="output/output1.jpg")
         return parser.parse_args()
 
 
@@ -44,7 +44,7 @@ class my_deep_dream():
         """implement of deep dream"""
         # define graph
         model = self.get_model()
-        output_path = "output/output.jpg"
+        output_path = "output/output1.jpg"
         graph = tf.Graph()
         sess = tf.InteractiveSession(graph=graph)
 
