@@ -19,7 +19,7 @@ tile_size = 512
 
 class my_deep_dream():
     def get_image(self,name):
-        self.input_image = cv2.imread(name)
+        self.input_image = cv2.imdecode(np.fromfile(name, dtype=np.uint8), -1)
     def define_args(self):
         """define args"""
         parser = argparse.ArgumentParser(description="deep_dream")

@@ -5,18 +5,23 @@ import my_face_recognition
 import my_deepdream
 import get_camera_image
 
-#相机捕捉
-# camera = get_camera_image.getCamera()
-# camera.getImage()
-# face = my_face_recognition.my_face_recognition()
-# face.getImage("camera_image.jpg")
-# face.getFace();
-# img = face.getFace();
+class take_image():
+    def __init__(self):
+        camera = get_camera_image.getCamera()
+        camera.getImage()
+        face = my_face_recognition.my_face_recognition()
+        face.getImage("camera_image.jpg")
+        face.getFace()
+    def getDeepdream(self):
+        deepdream = my_deepdream.my_deep_dream()
+        deepdream.get_image("face_output.jpg")
+        deepdream.deep_dream()
 
-# img = cv2.imread("camera_image.jpg")
-deepdream = my_deepdream.my_deep_dream()
-deepdream.get_image("img8.jpg")
-deepdream.deep_dream()
-#cv2.imshow("image",img)
-#cv2.waitKey(0)
-# face.getImage("8.jpg")
+class load_image():
+    def __init__(self,path):
+        self.path = path
+        print(self.path)
+    def getDeepdream(self):
+        deepdream = my_deepdream.my_deep_dream()
+        deepdream.get_image(self.path)
+        deepdream.deep_dream()

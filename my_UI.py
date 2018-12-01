@@ -7,6 +7,9 @@
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import QFileDialog
+import main
+
 
 class Ui_Form(object):
     def setupUi(self, Form):
@@ -26,10 +29,14 @@ class Ui_Form(object):
         QtCore.QMetaObject.connectSlotsByName(Form)
 
     def on_load_image_click(self):
-        print('a')
+        self.absolute_path = QFileDialog.getOpenFileName(self, 'Open file', '.', "jpg files (*.jpg)")
+        print(self.absolute_path)
+        load_image = main.load_image(self.absolute_path[0])
+        load_image.getDeepdream()
 
     def on_take_image_click(self):
-        print('b')
+        take_image = main.take_image()
+        take_image.getDeepdream()
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "基于人脸识别的deepdream"))
